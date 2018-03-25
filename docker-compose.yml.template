@@ -1,0 +1,11 @@
+version: "2"
+services:
+  datascience-notebook:
+    image: jupyter/datascience-notebook:latest
+    volumes:
+      - ./work:/home/jovyan/work
+    ports:
+      - {port}:8888
+    environment:
+        - GEN_CERT=yes
+    command: start-notebook.sh --NotebookApp.password='{password_hash}'
